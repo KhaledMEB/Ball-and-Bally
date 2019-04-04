@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    private int homeSceneIndex = 0;
 
     public void ReloadLevel()
     {
@@ -12,6 +13,12 @@ public class GameManager : MonoBehaviour {
     public void LoadNextLevel()
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void LoadHomeScene()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadSceneAsync(homeSceneIndex);
     }
 
     public void PauseLevel()

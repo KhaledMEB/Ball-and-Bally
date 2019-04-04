@@ -9,7 +9,7 @@ public class StartPanel : MonoBehaviour {
 
     public void LoadNextLevel()
     {
-        FindObjectOfType<GameManager>().ReloadLevel(); //change it when adding multiple levels
+        FindObjectOfType<GameManager>().LoadNextLevel(); //change it when adding multiple levels
     }
 
     public void HidePanel()

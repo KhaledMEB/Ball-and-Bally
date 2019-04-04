@@ -80,7 +80,7 @@ public class UIManager : MonoBehaviour {
 
     public void Home()
     {
-        //Debug.Log("Home");
+        FindObjectOfType<GameManager>().LoadHomeScene();
     }
 
     public void Sound()
