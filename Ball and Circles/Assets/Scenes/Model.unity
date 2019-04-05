@@ -1080,6 +1080,7 @@ MonoBehaviour:
   startPanel: {fileID: 1529621683}
   levelCompletePanelAnim: {fileID: 528473645}
   levelCompletePanel: {fileID: 528473641}
+  undoButtonAnim: {fileID: 1344571002}
 --- !u!1 &439527092
 GameObject:
   m_ObjectHideFlags: 0
@@ -12353,6 +12354,7 @@ GameObject:
   - component: {fileID: 1344570999}
   - component: {fileID: 1344571001}
   - component: {fileID: 1344571000}
+  - component: {fileID: 1344571002}
   m_Layer: 5
   m_Name: UndoButton
   m_TagString: Untagged
@@ -12412,6 +12414,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1344570998}
+--- !u!95 &1344571002
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1344570998}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 130fb0f570efd7247add544e50bd446c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1433874204
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,12 +19,19 @@ public class UIManager : MonoBehaviour {
     public Animator levelCompletePanelAnim;
     public GameObject levelCompletePanel;
 
+    public Animator undoButtonAnim;
+
     private bool isSoundActive = true;
     private bool raycastAllowed = false; 
 
     private void DesableButton(Button button)
     {
         button.gameObject.SetActive(false);
+    }
+
+    private void EnableButton(Button button)
+    {
+        button.gameObject.SetActive(true);
     }
 
     public void Start()
@@ -38,6 +45,13 @@ public class UIManager : MonoBehaviour {
         DesableButton(stopButton);
         FindObjectOfType<GuideLine>().enabled = true;
         raycastAllowed = true;
+    }
+
+    public void EnableStopButton()
+    {
+        EnableButton(stopButton);
+        FindObjectOfType<GuideLine>().enabled = false;
+        raycastAllowed = false;
     }
 
     public void StopObstacle()
@@ -66,7 +80,12 @@ public class UIManager : MonoBehaviour {
 
     public void Undo()
     {
-        //Debug.Log("Undo");
+        FindObjectOfType<ObstacleController>().Undo();
+    }
+
+    public void UndoShake()
+    {
+        undoButtonAnim.SetTrigger("Shake");
     }
 
 

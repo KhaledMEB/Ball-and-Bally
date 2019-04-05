@@ -43,11 +43,19 @@ public class LevelManager : MonoBehaviour {
 
     #region Lights Animations
 
-    public void SwitchLights()
+    //from Red to Green
+    public void GrennLights()
     {
         transition.SetTrigger("Green");
     }
 
+    //from Green to Red
+    public void RedLights()
+    {
+        transition.SetTrigger("Red");
+    }
+
+    //Pull the lights up
     public void HideLights()
     {
         transition.SetTrigger("HideLight");
