@@ -22,7 +22,9 @@ public class UIManager : MonoBehaviour {
     public Animator undoButtonAnim;
 
     private bool isSoundActive = true;
-    private bool raycastAllowed = false; 
+    private bool raycastAllowed = false;
+    private bool gameOver = false; //if the game is over
+    
 
     private void DesableButton(Button button)
     {
@@ -80,7 +82,14 @@ public class UIManager : MonoBehaviour {
 
     public void Undo()
     {
-        FindObjectOfType<ObstacleController>().Undo();
+        if (gameOver)
+        {
+            FindObjectOfType<Rewind>().StartRewind();
+            gameOver = false;
+        }
+            
+        else //game not over yew => a  simple undo to a collider
+            FindObjectOfType<ObstacleController>().Undo();
     }
 
     public void UndoShake()
@@ -155,6 +164,11 @@ public class UIManager : MonoBehaviour {
     public void SetRaycastAllowed(bool x)
     {
         raycastAllowed = x;
+    }
+
+    public void SetGameOver(bool x)
+    {
+        gameOver = x;
     }
 
 

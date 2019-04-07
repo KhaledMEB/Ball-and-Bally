@@ -16,7 +16,13 @@ public class PlayerMoves : MonoBehaviour {
 
     public void LaunchBall(Vector2 direction)
     {
+        StartRecording();
         rb.AddForce(direction * speed * Time.deltaTime, ForceMode2D.Impulse);
+    }
+
+    private void StartRecording()
+    {
+        FindObjectOfType<Rewind>().StartRecording();
     }
 
 

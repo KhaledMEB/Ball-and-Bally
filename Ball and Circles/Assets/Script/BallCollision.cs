@@ -42,7 +42,7 @@ public class BallCollision : MonoBehaviour {
     {
         HideBall();
         exploisionEffect.Play();
-        Destroy(gameObject, 2f);
+        //Destroy(gameObject, 2f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -52,10 +52,14 @@ public class BallCollision : MonoBehaviour {
         if (colliderTag == "Wall")
         {
             if (collisionCpt == 0)
+            {
                 GameOver();
+            }
+                
 
             else
             {
+                
                 PlayCollisionEffect();
                 ShakeCamera(collision.collider);
                 UpdateCollisionCpt();
@@ -86,9 +90,11 @@ public class BallCollision : MonoBehaviour {
 
     private void GameOver()
     {
+        FindObjectOfType<Rewind>().StopRecording(); //Stop the recording
         PlayExploisionEffect();
-        //Let the player reload the scene
-        //Desplay a panel or something
+
+        //Must wait for 2 second Until exploision end or do something else
+        FindObjectOfType<UIManager>().SetGameOver(true);
     }
 
     private IEnumerator BallDesable()
