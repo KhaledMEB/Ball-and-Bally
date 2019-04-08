@@ -1,17 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Rewind : MonoBehaviour {
 
     /*IMPORTANT POINT
-     *MAKE SURE TO ENABLE REWINDE ONLY OF PLAYER HAS ENOUGH COINS TO OFFERD IT
+     *MAKE SURE TO ENABLE REWINDE ONLY OF PLAYER HAS ENOUGH COINS TO OFFERD IT:
      *TO NOT DICREASE GAME PERFORMANCE
      *DO NOT FORGET TO STOP REWIND AFTER WINNIG LEVEL
      *DO NOT FORGET TO RESET THE COLLIDER COUNTER AFTER REWIND
-     */ 
+     */
 
-    public bool isRewinding = false;
-    public bool isRecording = false;
+    public GameObject rewindPanel;
+
+    private bool isRewinding = false;
+    private bool isRecording = false;
 
     private List<Vector3> positions;
 
@@ -57,8 +60,9 @@ public class Rewind : MonoBehaviour {
         Debug.Log(transform.position); /************************/
         }
 
-        public void StartRewind()
+    public void StartRewind()
     {
+        rewindPanel.SetActive(true);
         Time.timeScale *= 2;
         GetComponent<SpriteRenderer>().enabled = true; //make ball visible again
         isRewinding = true;
@@ -68,6 +72,8 @@ public class Rewind : MonoBehaviour {
     {
         Time.timeScale /= 2;
         isRewinding = false;
+
+        StartCoroutine("HideRewindPanel");
     }
 
 
@@ -79,6 +85,13 @@ public class Rewind : MonoBehaviour {
     public void StopRecording()
     {
         isRecording = false;
+    }
+
+    private IEnumerator HideRewindPanel()
+    {
+        rewindPanel.GetComponent<Animator>().SetTrigger("StopRewind");
+        yield return new WaitForSeconds(0.5f);
+        rewindPanel.SetActive(false);
     }
 
 }
