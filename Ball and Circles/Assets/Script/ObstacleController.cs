@@ -5,17 +5,19 @@ public class ObstacleController : MonoBehaviour {
 
     public GameObject[] obstacles;
 
-    private static int i = 0;
+    private bool canUndo = true; //to disable rewind when Ball is launched
+
+    private static int cptObstacleStoped = 0;
 
 
     private void Awake()
     {
-        i = 0;
+        cptObstacleStoped = 0;
     }
     private void CheckObstaclesNumber()
     {
-        i++;
-        if (i == obstacles.Length) //All colliders are stopped
+        cptObstacleStoped++; //number of stoped Obstacle
+        if (cptObstacleStoped == obstacles.Length) //All colliders are stopped
         {
             FindObjectOfType<UIManager>().DesableStopButton();
             FindObjectOfType<LevelManager>().GrennLights();
@@ -26,25 +28,33 @@ public class ObstacleController : MonoBehaviour {
 
     public void StopObstacle()
     {
-        obstacles[i].GetComponent<CircleRotation>().enabled = false;
+        obstacles[cptObstacleStoped].GetComponent<CircleRotation>().enabled = false;
         CheckObstaclesNumber();
     }
 
     public void Undo()
     {
-            if (i > 0)
+            if ((cptObstacleStoped > 0)&&(canUndo))
             {
-                if (i == obstacles.Length)
+
+                if (cptObstacleStoped == obstacles.Length)
                 {
                     FindObjectOfType<UIManager>().EnableStopButton();
                     FindObjectOfType<LevelManager>().RedLights();
                 }
-                i--;
-                obstacles[i].GetComponent<CircleRotation>().enabled = true;
+                cptObstacleStoped--;
+                obstacles[cptObstacleStoped].GetComponent<CircleRotation>().enabled = true;
+                
             }
 
             else
                 FindObjectOfType<UIManager>().UndoShake();
+    }
+
+
+    public void SetCanUndo(bool x)
+    {
+        canUndo = x;
     }
 
 }

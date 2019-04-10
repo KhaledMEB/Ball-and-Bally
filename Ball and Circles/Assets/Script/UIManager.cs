@@ -10,14 +10,14 @@ public class UIManager : MonoBehaviour {
     public GameObject pausePanel;
     public TextMeshProUGUI collisionCpt;
 
-    public GameObject interactablePanel; //make the pause and undo not intercatble
+    
 
     /*Animation when reloading or starting the scene*/
     public Animator startPanelAnim;
     public GameObject startPanel;
 
     public Animator levelCompletePanelAnim;
-    public GameObject levelCompletePanel;
+    
 
     public Animator undoButtonAnim;
 
@@ -72,12 +72,6 @@ public class UIManager : MonoBehaviour {
     {
         startPanel.SetActive(true);
         startPanelAnim.SetTrigger("Reload");
-    }
-
-    public void EnableLevelCpPanel()
-    {
-        interactablePanel.SetActive(true); //do not let the player pause or undo
-        levelCompletePanel.SetActive(true);
     }
 
     public void Undo()

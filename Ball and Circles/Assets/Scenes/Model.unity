@@ -830,6 +830,7 @@ GameObject:
   - component: {fileID: 172918485}
   - component: {fileID: 172918484}
   - component: {fileID: 172918486}
+  - component: {fileID: 172918487}
   m_Layer: 10
   m_Name: Circle1
   m_TagString: Circle
@@ -910,6 +911,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 1
   speedRotation: 75
+--- !u!58 &172918487
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 172918483}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.9200001
 --- !u!1 &179049870
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,11 +1091,9 @@ MonoBehaviour:
   soundImage: {fileID: 1777958114}
   pausePanel: {fileID: 1067646101}
   collisionCpt: {fileID: 717891903}
-  interactablePanel: {fileID: 1953134257}
   startPanelAnim: {fileID: 1529621685}
   startPanel: {fileID: 1529621683}
   levelCompletePanelAnim: {fileID: 528473645}
-  levelCompletePanel: {fileID: 528473641}
   undoButtonAnim: {fileID: 1344571002}
 --- !u!1 &439527092
 GameObject:
@@ -12554,6 +12568,8 @@ MonoBehaviour:
   winEffect: {fileID: 948483388}
   ballyFadeOut: {fileID: 1539966071}
   transition: {fileID: 1858445759}
+  interactablePanel: {fileID: 1953134257}
+  levelCompletePanel: {fileID: 528473641}
 --- !u!4 &1433874206
 Transform:
   m_ObjectHideFlags: 0

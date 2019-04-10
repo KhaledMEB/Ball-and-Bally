@@ -7,8 +7,9 @@ public class Rewind : MonoBehaviour {
     /*IMPORTANT POINT
      *MAKE SURE TO ENABLE REWINDE ONLY OF PLAYER HAS ENOUGH COINS TO OFFERD IT:
      *TO NOT DICREASE GAME PERFORMANCE
-     *DO NOT FORGET TO STOP REWIND AFTER WINNIG LEVEL
-     *DO NOT FORGET TO RESET THE COLLIDER COUNTER AFTER REWIND
+     *DO NOT FORGET TO STOP REWIND AFTER WINNIG LEVEL => DONE
+     *DO NOT FORGET TO RESET THE COLLIDER COUNTER AFTER REWIND => NEED A DATABASE TO SAVE EACH LEVLE COUNTER 
+     *DO NOT ENABLE REWIND WHEN BALL LAUNCHED => DONE
      */
 
     public GameObject rewindPanel;
@@ -57,8 +58,7 @@ public class Rewind : MonoBehaviour {
     private void RecordIt()
     {
         positions.Insert(0, transform.position);
-        Debug.Log(transform.position); /************************/
-        }
+    }
 
     public void StartRewind()
     {

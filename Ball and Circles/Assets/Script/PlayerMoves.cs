@@ -17,6 +17,7 @@ public class PlayerMoves : MonoBehaviour {
     public void LaunchBall(Vector2 direction)
     {
         StartRecording();
+        FindObjectOfType<ObstacleController>().SetCanUndo(false);
         rb.AddForce(direction * speed * Time.deltaTime, ForceMode2D.Impulse);
     }
 

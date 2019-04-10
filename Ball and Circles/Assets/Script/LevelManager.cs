@@ -15,8 +15,8 @@ public class LevelManager : MonoBehaviour {
 
     public Animator transition; //Lights
 
-    
-
+    public GameObject interactablePanel; //make the pause and undo not intercatble
+    public GameObject levelCompletePanel;
 
 
     public int GetCollisionCounter()
@@ -37,8 +37,10 @@ public class LevelManager : MonoBehaviour {
 
     private IEnumerator EnableCompleteLevel()
     {
+        interactablePanel.SetActive(true); //do not let the player pause or undo
         yield return new WaitForSeconds(4.5f);
-        FindObjectOfType<UIManager>().EnableLevelCpPanel();
+        levelCompletePanel.SetActive(true);
+        //FindObjectOfType<UIManager>().EnableLevelCpPanel();
     }
 
     #region Lights Animations

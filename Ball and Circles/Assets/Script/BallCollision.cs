@@ -95,7 +95,8 @@ public class BallCollision : MonoBehaviour {
 
         //Must wait for 2 second Until exploision end or do something else
         FindObjectOfType<UIManager>().SetGameOver(true);
-    }
+        FindObjectOfType<ObstacleController>().SetCanUndo(true);
+        }
 
     private IEnumerator BallDesable()
     {
